@@ -3,6 +3,7 @@ import 'package:cinemagate/presentation/screens/create/create.dart';
 import 'package:cinemagate/presentation/screens/home/home.dart';
 import 'package:cinemagate/presentation/screens/profile/profile.dart';
 import 'package:cinemagate/presentation/screens/search/search.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -16,11 +17,11 @@ class _BottomNavState extends State<BottomNav> {
   int selectedIndex = 0;
 
   final List<Widget> pages = [
-    Home(),
-    Search(),
-    Category(),
-    Create(),
-    Profile(),
+    const Home(),
+    const Search(),
+    const Category(),
+    const Create(),
+    const Profile(),
   ];
 
   void _onItemTapped(int index) {
@@ -32,17 +33,17 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIndex,
-          backgroundColor: Colors.blue[200],
+      bottomNavigationBar: CurvedNavigationBar(
+          height: 50,
+          index: selectedIndex,
+          backgroundColor: Colors.black,
           onTap: _onItemTapped,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.movie_creation_outlined), label: 'Category'),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Create'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Me'),
+            Icon(Icons.home),
+            Icon(Icons.search),
+            Icon(Icons.movie_creation_outlined),
+            Icon(Icons.add),
+            Icon(Icons.person),
           ]),
     );
   }
