@@ -38,13 +38,17 @@ class _BottomNavState extends State<BottomNav> {
           index: selectedIndex,
           backgroundColor: Colors.black,
           onTap: _onItemTapped,
-          items: [
+          items: const [
             Icon(Icons.home),
             Icon(Icons.search),
             Icon(Icons.movie_creation_outlined),
             Icon(Icons.add),
             Icon(Icons.person),
           ]),
+      body: IndexedStack(
+        index: selectedIndex,
+        children: pages,
+      ),
     );
   }
 }
