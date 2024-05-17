@@ -16,7 +16,7 @@ class Signup extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 100,
               child: Icon(Icons.camera),
             ),

@@ -32,22 +32,24 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-          height: 50,
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: CurvedNavigationBar(
+            height: 50,
+            index: selectedIndex,
+            backgroundColor: Colors.black,
+            onTap: _onItemTapped,
+            items: const [
+              Icon(Icons.home),
+              Icon(Icons.search),
+              Icon(Icons.movie_creation_outlined),
+              Icon(Icons.add),
+              Icon(Icons.person),
+            ]),
+        body: IndexedStack(
           index: selectedIndex,
-          backgroundColor: Colors.black,
-          onTap: _onItemTapped,
-          items: const [
-            Icon(Icons.home),
-            Icon(Icons.search),
-            Icon(Icons.movie_creation_outlined),
-            Icon(Icons.add),
-            Icon(Icons.person),
-          ]),
-      body: IndexedStack(
-        index: selectedIndex,
-        children: pages,
+          children: pages,
+        ),
       ),
     );
   }
